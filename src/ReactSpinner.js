@@ -1,20 +1,21 @@
+var PropTypes = require('prop-types');
 var React = require('react');
 
-var ReactSpinner = React.createClass({
-	propTypes: {
-		size: React.PropTypes.number,
-		borderColor: React.PropTypes.string,
-		borderTopColor: React.PropTypes.string,
-		state: React.PropTypes.string
-	},
-	getDefaultProps: function() {
-		return {
-			size: 20,
-			borderColor: '#f3f3f3',
-			borderTopColor: '#3498db'
-		};
-	},
-	render: function() {
+class ReactSpinner extends React.Component {
+    static propTypes = {
+		size: PropTypes.number,
+		borderColor: PropTypes.string,
+		borderTopColor: PropTypes.string,
+		state: PropTypes.string
+	};
+
+    static defaultProps = {
+        size: 20,
+        borderColor: '#f3f3f3',
+        borderTopColor: '#3498db'
+    };
+
+    render() {
 		let spinnerClass = 'mg-react-spinner__main' + ' ' + 'l-center';
     let size = this.props.size;
 
@@ -43,6 +44,6 @@ var ReactSpinner = React.createClass({
       ></div>
     </div>);
 	}
-});
+}
 
 export default ReactSpinner;
